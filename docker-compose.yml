@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=dairy_db
+      - POSTGRES_USER=dairy_user
+      - POSTGRES_PASSWORD=dairy_password
+    restart: always
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8066:8000"
+    environment:
+      - DEBUG=True
+      - DB_NAME=dairy_db
+      - DB_USER=dairy_user
+      - DB_PASSWORD=dairy_password
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  postgres_data:

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Milk Collection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-green-700">🥛 New Milk Entry</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Select Farmer</label>
+                <select name="farmer" class="w-full border p-2 rounded focus:outline-none focus:border-green-500" required>
+                    {% for farmer in farmers %}
+                        <option value="{{ farmer.id }}">{{ farmer.name }} ({{ farmer.phone }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Litres</label>
+                <input type="number" step="0.01" name="litres" class="w-full border p-2 rounded focus:outline-none focus:border-green-500" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">FAT</label>
+                <input type="number" step="0.01" name="fat" class="w-full border p-2 rounded focus:outline-none focus:border-green-500" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Price Per Litre (₹)</label>
+                <input type="number" step="0.01" name="price_per_litre" class="w-full border p-2 rounded focus:outline-none focus:border-green-500" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Shift</label>
+                <select name="shift" class="w-full border p-2 rounded focus:outline-none focus:border-green-500">
+                    <option value="Morning">Morning</option>
+                    <option value="Evening">Evening</option>
+                </select>
+            </div>
+
+            <button type="submit" class="w-full bg-green-600 text-white p-2 rounded font-bold hover:bg-green-700">Save Entry</Cbutton>
+            <a href="{% url 'dashboard' %}" class="block text-center text-gray-500 text-sm mt-4 hover:underline">Back to Dashboard</a>
+        </form>
+    </div>
+</body>
+</html>

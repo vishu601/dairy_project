@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Ledger & Payout Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-green-700">📒 Farmer Ledger & Payout Report</h1>
+            <a href="{% url 'dashboard' %}" class="bg-gray-600 text-white px-4 py-2 rounded shadow hover:bg-gray-700">← Back to Dashboard</a>
+        </div>
+
+        <!-- Ledger Table -->
+        <div class="bg-white rounded shadow overflow-hidden">
+            <div class="px-6 py-4 border-b">
+                <h3 class="text-lg font-semibold text-gray-700">Farmer Payout & Payment Status</h3>
+            </div>
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-50 text-gray-600 text-sm border-b">
+                        <th class="py-3 px-6">Farmer Name</th>
+                        <th class="py-3 px-6">Phone</th>
+                        <th class="py-3 px-6">Total Litres</th>
+                        <th class="py-3 px-6">Unpaid Amount (To Pay)</th>
+                        <th class="py-3 px-6">Status / Last Paid Date</th>
+                        <th class="py-3 px-6">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm">
+                    {% for farmer in farmers %}
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-3 px-6 font-medium text-gray-800">{{ farmer.name }}</td>
+                        <td class="py-3 px-6">{{ farmer.phone }}</td>
+                        <td class="py-3 px-6 font-semibold text-blue-600">{{ farmer.total_litres|default:0 }} L</td>
+                        <td class="py-3 px-6 font-bold text-red-600">
+                            ₹{{ farmer.unpaid_amount|default:0 }} 
+                        </td>
+                        <td class="py-3 px-6">
+                            {% if farmer.last_paid_date %}
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Paid on: {{ farmer.last_paid_date }}</span>
+                            {% else %}
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Pending</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-3 px-6">
+                            <div class="flex gap-2 items-center">
+                                <a href="{% url 'pay_farmer' farmer.id %}" onclick="return confirm('Sari entries ko Paid mark karke payment clear karein?');" class="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700 shadow">💰 Clear Payment</a>
+                                
+                                {% if farmer.last_paid_date %}
+                                    <a href="{% url 'download_payment_slip' farmer.id %}" class="bg-indigo-600 text-white px-3 py-1 rounded text-xs hover:bg-indigo-700 shadow">📄 Slip</a>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center py-6 text-gray-400">No farmers found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

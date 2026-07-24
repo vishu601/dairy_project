@@ -1,0 +1,6 @@
+Django
+psycopg2-binary
+asgiref
+sqlparse
+reportlab
+requests
