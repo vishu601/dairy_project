@@ -1,6 +1,4 @@
-Django
+django>=4.0
 psycopg2-binary
-asgiref
-sqlparse
-reportlab
-requests
+dj-database-url
+gunicorn
