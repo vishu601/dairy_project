@@ -1,31 +1,29 @@
+version: '3.8'
+
 services:
   db:
     image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: dairy_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=dairy_db
-      - POSTGRES_USER=dairy_user
-      - POSTGRES_PASSWORD=dairy_password
-    restart: always
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py migrate && gunicorn core.wsgi:application --bind 0.0.0.0:10000
     volumes:
       - .:/app
     ports:
-      - "8066:8000"
+      - "8000:10000"
     environment:
       - DEBUG=True
-      - DB_NAME=dairy_db
-      - DB_USER=dairy_user
-      - DB_PASSWORD=dairy_password
-      - DB_HOST=db
-      - DB_PORT=5432
+      - DATABASE_URL=postgres://postgres:password123@db:5432/dairy_db
     depends_on:
       - db
-    restart: always
 
 volumes:
   postgres_data:
