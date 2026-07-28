@@ -14,11 +14,14 @@ services:
 
   web:
     build: .
-    command: python manage.py migrate && gunicorn core.wsgi:application --bind 0.0.0.0:10000
+    container_name: dairy_web_app_new
+    command: >
+      sh -c "python manage.py migrate && 
+             gunicorn core.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
-      - "8000:10000"
+      - "8000:8000"
     environment:
       - DEBUG=True
       - DATABASE_URL=postgres://postgres:password123@db:5432/dairy_db

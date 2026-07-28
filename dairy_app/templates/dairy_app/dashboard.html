@@ -10,10 +10,9 @@
     <style>
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            /* Sky Blue Professional Gradient */
             background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #81d4fa 100%);
             min-height: 100vh;
-            color: #006064; /* Dark Cyan text for contrast */
+            color: #006064;
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.8);
@@ -47,11 +46,11 @@
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo & Brand -->
             <div class="flex items-center gap-3">
-                <div class="bg-light-blue-600 p-2.5 rounded-2xl text-white" style="background: #0277bd;">
+                <div class="p-2.5 rounded-2xl text-white" style="background: #0277bd;">
                     <i class="fa-solid fa-cow text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-extrabold tracking-tight text-cyan-900">Dairy<span class="text-light-blue-600">OS</span></h1>
+                    <h1 class="text-xl font-extrabold tracking-tight text-cyan-900">Dairy<span style="color: #0277bd;">OS</span></h1>
                     <p class="text-[11px] text-cyan-700 font-semibold uppercase tracking-wider hidden xs:block">Enterprise Suite</p>
                 </div>
             </div>
@@ -97,7 +96,7 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2 text-xs text-cyan-800 font-medium">
-                    <i class="fa-solid fa-arrow-trend-up text-light-blue-600"></i> Live data updated
+                    <i class="fa-solid fa-arrow-trend-up" style="color: #0277bd;"></i> Live data updated
                 </div>
             </div>
 
@@ -156,7 +155,7 @@
 
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-light-blue-600 flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #039be5;">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #039be5;">
                                 {{ c.farmer.name|slice:":1" }}
                             </div>
                             <div>
@@ -213,4 +212,37 @@
                                 </div>
                                 {{ c.farmer.name }}
                             </td>
-                            <td class="py-4 px-6 font-bold text-light-
+                            <td class="py-4 px-6 font-bold text-cyan-900">{{ c.litres }} L</td>
+                            <td class="py-4 px-6 font-semibold text-cyan-900">{{ c.fat }}</td>
+                            <td class="py-4 px-6">
+                                <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-100 text-amber-800 border-amber-200{% else %}bg-purple-100 text-purple-800 border-purple-200{% endif %}">
+                                    <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-amber-600{% else %}fa-moon text-purple-600{% endif %}"></i> {{ c.shift }}
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-cyan-900">₹{{ c.price_per_litre }}</td>
+                            <td class="py-4 px-6 font-black text-cyan-950">₹{{ c.total_amount }}</td>
+                            <td class="py-4 px-6 text-xs text-cyan-700 font-mono">{{ c.collected_by.username|default:"Admin" }}</td>
+                            <td class="py-4 px-6 text-center">
+                                <a href="{% url 'download_slip' c.id %}" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm transition-all inline-flex items-center gap-1.5">
+                                    <i class="fa-solid fa-file-arrow-down"></i> PDF
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="9" class="text-center py-12 text-cyan-700/70 font-medium">
+                                <div class="flex flex-col items-center justify-center gap-2">
+                                    <i class="fa-regular fa-folder-open text-4xl text-cyan-400/50"></i>
+                                    <p class="text-sm">No collection entries found.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
