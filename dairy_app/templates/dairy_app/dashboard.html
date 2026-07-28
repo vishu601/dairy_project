@@ -10,33 +10,33 @@
     <style>
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #81d4fa 100%);
+            background: linear-gradient(135deg, #fffde7 0%, #fff9c4 50%, #fff176 100%);
             min-height: 100vh;
-            color: #006064;
+            color: #5d4037;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 235, 59, 0.4);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         .glass-nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+            border-bottom: 1px solid rgba(253, 216, 53, 0.3);
         }
-        .text-dairy-orange { color: #fb8c00; }
-        .bg-dairy-orange { background-color: #fb8c00; }
+        .text-dairy-orange { color: #f57c00; }
+        .bg-dairy-orange { background-color: #f57c00; }
         .btn-sky {
-            background: linear-gradient(45deg, #0277bd, #039be5);
+            background: linear-gradient(45deg, #fbc02d, #f57c00);
             color: white;
-            box-shadow: 0 4px 15px rgba(3, 155, 229, 0.4);
+            box-shadow: 0 4px 15px rgba(245, 124, 0, 0.3);
         }
         .btn-sky:hover {
-            background: linear-gradient(45deg, #026cAA, #0288d1);
+            background: linear-gradient(45deg, #f9a825, #ef6c00);
         }
-        .metric-icon-bg { background-color: rgba(2, 119, 189, 0.1); color: #0277bd; }
+        .metric-icon-bg { background-color: rgba(253, 216, 53, 0.2); color: #f57c00; }
     </style>
 </head>
 <body class="pb-12">
@@ -46,26 +46,26 @@
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo & Brand -->
             <div class="flex items-center gap-3">
-                <div class="p-2.5 rounded-2xl text-white" style="background: #0277bd;">
+                <div class="p-2.5 rounded-2xl text-white" style="background: #f57c00;">
                     <i class="fa-solid fa-cow text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-extrabold tracking-tight text-cyan-900">Dairy<span style="color: #0277bd;">OS</span></h1>
-                    <p class="text-[11px] text-cyan-700 font-semibold uppercase tracking-wider hidden xs:block">Enterprise Suite</p>
+                    <h1 class="text-xl font-extrabold tracking-tight text-amber-950">Dairy<span style="color: #f57c00;">OS</span></h1>
+                    <p class="text-[11px] text-amber-800 font-semibold uppercase tracking-wider hidden xs:block">Enterprise Suite</p>
                 </div>
             </div>
 
             <!-- Center Title -->
             <div class="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-                <h2 class="text-2xl font-extrabold text-cyan-950 tracking-tight">
+                <h2 class="text-2xl font-extrabold text-amber-950 tracking-tight">
                     SHREE <span class="text-dairy-orange">DĀRJĪ</span> DAIRY FARM
                 </h2>
             </div>
 
             <!-- Actions -->
             <div class="flex items-center gap-3">
-                <a href="{% url 'farmer_ledger' %}" class="bg-cyan-900/5 hover:bg-cyan-900/10 text-cyan-950 px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-cyan-900/10">
-                    <i class="fa-solid fa-book-open text-cyan-700"></i> <span class="hidden sm:inline">Ledger</span>
+                <a href="{% url 'farmer_ledger' %}" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-950 px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-amber-500/20">
+                    <i class="fa-solid fa-book-open text-amber-700"></i> <span class="hidden sm:inline">Ledger</span>
                 </a>
                 <a href="{% url 'add_milk' %}" class="btn-sky px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
                     <i class="fa-solid fa-plus-circle"></i> Add <span class="hidden xs:inline">Entry</span>
@@ -73,8 +73,8 @@
             </div>
         </div>
         <!-- Mobile Title -->
-        <div class="md:hidden mt-3 text-center border-t border-cyan-500/10 pt-2">
-            <h2 class="text-lg font-extrabold text-cyan-950 tracking-tight">
+        <div class="md:hidden mt-3 text-center border-t border-amber-500/20 pt-2">
+            <h2 class="text-lg font-extrabold text-amber-950 tracking-tight">
                 SHREE <span class="text-dairy-orange">DĀRJĪ</span> DAIRY FARM
             </h2>
         </div>
@@ -88,15 +88,15 @@
             <div class="glass-card p-7 rounded-3xl shadow-lg">
                 <div class="flex justify-between items-start mb-4">
                     <div>
-                        <p class="text-cyan-800 text-xs font-bold uppercase tracking-wider">Total Milk Volume</p>
-                        <h3 class="text-4xl font-black text-cyan-950 mt-2">{{ total_litres|default:0 }} <span class="text-lg font-bold text-cyan-700">Litres</span></h3>
+                        <p class="text-amber-800 text-xs font-bold uppercase tracking-wider">Total Milk Volume</p>
+                        <h3 class="text-4xl font-black text-amber-950 mt-2">{{ total_litres|default:0 }} <span class="text-lg font-bold text-amber-700">Litres</span></h3>
                     </div>
                     <div class="metric-icon-bg p-3.5 rounded-2xl">
                         <i class="fa-solid fa-glass-water text-xl"></i>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 text-xs text-cyan-800 font-medium">
-                    <i class="fa-solid fa-arrow-trend-up" style="color: #0277bd;"></i> Live data updated
+                <div class="flex items-center gap-2 text-xs text-amber-800 font-medium">
+                    <i class="fa-solid fa-arrow-trend-up text-amber-700"></i> Live data updated
                 </div>
             </div>
 
@@ -104,82 +104,82 @@
             <div class="glass-card p-7 rounded-3xl shadow-lg">
                 <div class="flex justify-between items-start mb-4">
                     <div>
-                        <p class="text-cyan-800 text-xs font-bold uppercase tracking-wider">Total Payout Disbursed</p>
-                        <h3 class="text-4xl font-black text-cyan-950 mt-2">₹ {{ total_amount|default:0 }}</h3>
+                        <p class="text-amber-800 text-xs font-bold uppercase tracking-wider">Total Payout Disbursed</p>
+                        <h3 class="text-4xl font-black text-amber-950 mt-2">₹ {{ total_amount|default:0 }}</h3>
                     </div>
-                    <div class="metric-icon-bg p-3.5 rounded-2xl" style="background-color: rgba(251, 140, 0, 0.1); color: #fb8c00;">
+                    <div class="metric-icon-bg p-3.5 rounded-2xl" style="background-color: rgba(245, 124, 0, 0.1); color: #f57c00;">
                         <i class="fa-solid fa-wallet text-xl"></i>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 text-xs text-cyan-800 font-medium">
+                <div class="flex items-center gap-2 text-xs text-amber-800 font-medium">
                     <i class="fa-solid fa-check-circle text-dairy-orange"></i> Amount calculated automatically
                 </div>
             </div>
         </div>
 
         <!-- Filter & Search Console -->
-        <form method="GET" class="glass-card p-5 rounded-3xl mb-8 shadow-lg flex flex-col md:flex-row gap-4 items-center border border-cyan-500/10">
+        <form method="GET" class="glass-card p-5 rounded-3xl mb-8 shadow-lg flex flex-col md:flex-row gap-4 items-center border border-amber-500/20">
             <div class="w-full md:flex-1 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-cyan-600 text-sm"></i>
-                <input type="text" name="q" value="{{ search_query }}" placeholder="Search farmer by name..." class="w-full bg-white border border-cyan-500/20 text-cyan-950 placeholder-cyan-600/70 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-light-blue-500/50 transition-all">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-amber-700 text-sm"></i>
+                <input type="text" name="q" value="{{ search_query }}" placeholder="Search farmer by name..." class="w-full bg-white border border-amber-500/30 text-amber-950 placeholder-amber-700/60 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all">
             </div>
             <div class="w-full md:w-auto">
-                <input type="date" name="date" value="{{ selected_date }}" class="w-full md:w-auto bg-white border border-cyan-500/20 text-cyan-950 px-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-light-blue-500/50 transition-all">
+                <input type="date" name="date" value="{{ selected_date }}" class="w-full md:w-auto bg-white border border-amber-500/30 text-amber-950 px-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all">
             </div>
             <div class="flex gap-2 w-full md:w-auto">
                 <button type="submit" class="flex-1 md:flex-none btn-sky px-6 py-3 rounded-2xl text-sm font-bold shadow-md">Filter</button>
-                <a href="{% url 'dashboard' %}" class="flex-1 md:flex-none text-center bg-cyan-900/5 hover:bg-cyan-900/10 text-cyan-900 px-5 py-3 rounded-2xl text-sm font-bold transition-all border border-cyan-900/10">Reset</a>
+                <a href="{% url 'dashboard' %}" class="flex-1 md:flex-none text-center bg-amber-500/10 hover:bg-amber-500/20 text-amber-950 px-5 py-3 rounded-2xl text-sm font-bold transition-all border border-amber-500/20">Reset</a>
             </div>
         </form>
 
         <!-- Main Data Container -->
-        <div class="glass-card rounded-3xl overflow-hidden shadow-xl border border-cyan-500/10">
-            <div class="px-6 py-5 border-b border-cyan-500/10 flex justify-between items-center bg-cyan-900/5">
+        <div class="glass-card rounded-3xl overflow-hidden shadow-xl border border-amber-500/20">
+            <div class="px-6 py-5 border-b border-amber-500/20 flex justify-between items-center bg-amber-500/10">
                 <div class="flex items-center gap-3">
                     <div class="w-3 h-3 rounded-full bg-dairy-orange animate-pulse"></div>
-                    <h3 class="text-base font-extrabold text-cyan-950 tracking-wide">Live Collections Stream</h3>
+                    <h3 class="text-base font-extrabold text-amber-950 tracking-wide">Live Collections Stream</h3>
                 </div>
-                <span class="text-xs font-bold text-cyan-800 bg-cyan-900/10 px-3 py-1.5 rounded-xl">Auto-sync Active</span>
+                <span class="text-xs font-bold text-amber-800 bg-amber-500/20 px-3 py-1.5 rounded-xl">Auto-sync Active</span>
             </div>
             
             <!-- Mobile Card View -->
-            <div class="block lg:hidden divide-y divide-cyan-500/10 p-4 space-y-4">
+            <div class="block lg:hidden divide-y divide-amber-500/20 p-4 space-y-4">
                 {% for c in collections %}
-                <div class="bg-white border border-cyan-500/10 rounded-2xl p-4 space-y-3 shadow-sm">
+                <div class="bg-white border border-amber-500/20 rounded-2xl p-4 space-y-3 shadow-sm">
                     <div class="flex justify-between items-center">
-                        <span class="text-xs font-semibold text-cyan-800"><i class="fa-regular fa-calendar mr-1"></i> {{ c.date }}</span>
-                        <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-100 text-amber-800 border-amber-200{% else %}bg-purple-100 text-purple-800 border-purple-200{% endif %}">
+                        <span class="text-xs font-semibold text-amber-800"><i class="fa-regular fa-calendar mr-1"></i> {{ c.date }}</span>
+                        <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-100 text-amber-800 border-amber-300{% else %}bg-purple-100 text-purple-800 border-purple-300{% endif %}">
                             <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-amber-600{% else %}fa-moon text-purple-600{% endif %}"></i> {{ c.shift }}
                         </span>
                     </div>
 
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #039be5;">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #f57c00;">
                                 {{ c.farmer.name|slice:":1" }}
                             </div>
                             <div>
-                                <h4 class="font-bold text-cyan-950 text-sm">{{ c.farmer.name }}</h4>
-                                <p class="text-xs text-cyan-700 font-mono">Op: {{ c.collected_by.username|default:"Admin" }}</p>
+                                <h4 class="font-bold text-amber-950 text-sm">{{ c.farmer.name }}</h4>
+                                <p class="text-xs text-amber-700 font-mono">Op: {{ c.collected_by.username|default:"Admin" }}</p>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-lg font-black text-cyan-950">₹{{ c.total_amount }}</span>
-                            <p class="text-xs text-cyan-800 font-semibold">{{ c.litres }} L • F {{ c.fat }}</p>
+                            <span class="text-lg font-black text-amber-950">₹{{ c.total_amount }}</span>
+                            <p class="text-xs text-amber-800 font-semibold">{{ c.litres }} L • F {{ c.fat }}</p>
                         </div>
                     </div>
 
-                    <div class="pt-2 border-t border-cyan-500/10 flex justify-between items-center text-xs">
-                        <span class="text-cyan-900 font-medium">Rate: ₹{{ c.price_per_litre }}/L</span>
+                    <div class="pt-2 border-t border-amber-500/20 flex justify-between items-center text-xs">
+                        <span class="text-amber-900 font-medium">Rate: ₹{{ c.price_per_litre }}/L</span>
                         <a href="{% url 'download_slip' c.id %}" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-xl text-xs font-bold shadow-sm transition-all inline-flex items-center gap-1.5">
                             <i class="fa-solid fa-file-arrow-down"></i> PDF Slip
                         </a>
                     </div>
                 </div>
                 {% empty %}
-                <div class="text-center py-12 text-cyan-700/70 font-medium">
+                <div class="text-center py-12 text-amber-800/70 font-medium">
                     <div class="flex flex-col items-center justify-center gap-2">
-                        <i class="fa-regular fa-folder-open text-4xl text-cyan-400/50"></i>
+                        <i class="fa-regular fa-folder-open text-4xl text-amber-400/50"></i>
                         <p class="text-sm">No collection entries found.</p>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
             <div class="hidden lg:block overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-cyan-900/10 text-cyan-900 text-xs font-extrabold uppercase tracking-wider border-b border-cyan-500/10">
+                        <tr class="bg-amber-500/10 text-amber-950 text-xs font-extrabold uppercase tracking-wider border-b border-amber-500/20">
                             <th class="py-4 px-6">Date</th>
                             <th class="py-4 px-6">Farmer Name</th>
                             <th class="py-4 px-6">Litres</th>
@@ -202,26 +202,26 @@
                             <th class="py-4 px-6 text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="text-cyan-950 text-sm divide-y divide-cyan-500/10">
+                    <tbody class="text-amber-950 text-sm divide-y divide-amber-500/20">
                         {% for c in collections %}
-                        <tr class="hover:bg-cyan-900/5 transition-colors">
-                            <td class="py-4 px-6 font-medium text-cyan-900">{{ c.date }}</td>
-                            <td class="py-4 px-6 font-bold text-cyan-950 flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #039be5;">
+                        <tr class="hover:bg-amber-500/10 transition-colors">
+                            <td class="py-4 px-6 font-medium text-amber-900">{{ c.date }}</td>
+                            <td class="py-4 px-6 font-bold text-amber-950 flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #f57c00;">
                                     {{ c.farmer.name|slice:":1" }}
                                 </div>
                                 {{ c.farmer.name }}
                             </td>
-                            <td class="py-4 px-6 font-bold text-cyan-900">{{ c.litres }} L</td>
-                            <td class="py-4 px-6 font-semibold text-cyan-900">{{ c.fat }}</td>
+                            <td class="py-4 px-6 font-bold text-amber-900">{{ c.litres }} L</td>
+                            <td class="py-4 px-6 font-semibold text-amber-900">{{ c.fat }}</td>
                             <td class="py-4 px-6">
-                                <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-100 text-amber-800 border-amber-200{% else %}bg-purple-100 text-purple-800 border-purple-200{% endif %}">
+                                <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-100 text-amber-800 border-amber-300{% else %}bg-purple-100 text-purple-800 border-purple-300{% endif %}">
                                     <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-amber-600{% else %}fa-moon text-purple-600{% endif %}"></i> {{ c.shift }}
                                 </span>
                             </td>
-                            <td class="py-4 px-6 font-medium text-cyan-900">₹{{ c.price_per_litre }}</td>
-                            <td class="py-4 px-6 font-black text-cyan-950">₹{{ c.total_amount }}</td>
-                            <td class="py-4 px-6 text-xs text-cyan-700 font-mono">{{ c.collected_by.username|default:"Admin" }}</td>
+                            <td class="py-4 px-6 font-medium text-amber-900">₹{{ c.price_per_litre }}</td>
+                            <td class="py-4 px-6 font-black text-amber-950">₹{{ c.total_amount }}</td>
+                            <td class="py-4 px-6 text-xs text-amber-700 font-mono">{{ c.collected_by.username|default:"Admin" }}</td>
                             <td class="py-4 px-6 text-center">
                                 <a href="{% url 'download_slip' c.id %}" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm transition-all inline-flex items-center gap-1.5">
                                     <i class="fa-solid fa-file-arrow-down"></i> PDF
@@ -230,9 +230,9 @@
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="9" class="text-center py-12 text-cyan-700/70 font-medium">
+                            <td colspan="9" class="text-center py-12 text-amber-800/70 font-medium">
                                 <div class="flex flex-col items-center justify-center gap-2">
-                                    <i class="fa-regular fa-folder-open text-4xl text-cyan-400/50"></i>
+                                    <i class="fa-regular fa-folder-open text-4xl text-amber-400/50"></i>
                                     <p class="text-sm">No collection entries found.</p>
                                 </div>
                             </td>
