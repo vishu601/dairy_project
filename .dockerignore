@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.git/
+.github/
+k8s/
+*.pyc
+.env
+node_modules/
+target/
+.vscode/
+*.log
