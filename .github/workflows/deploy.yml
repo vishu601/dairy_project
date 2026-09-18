@@ -35,11 +35,11 @@ jobs:
     steps:
       - name: Navigate to project folder and pull latest code #this project 
         run: |
-          cd /home/ubuntu/dairy_project 
+          cd /home/ubuntu/kiranakhata-pro.  
           git pull origin main
 
       - name: Build and Run Docker Stack on EC2  #this Ec2
         run: |
-          cd /home/ubuntu/dairy_project
+          cd /home/ubuntu/kiranakhata-pro.
           sudo docker-compose up -d --build
           sudo docker-compose ps
