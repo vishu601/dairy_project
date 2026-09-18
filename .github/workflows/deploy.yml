@@ -1,25 +1,45 @@
-name: CI/CD Pipeline (Python (Django/Flask))
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ "main" ]
 
 jobs:
-  build-and-deploy:
+  ci:
+    name: Continuous Integration (CI)
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Source Code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Install Dependencies
-      run: pip install -r requirements.txt
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-    - name: Build and Run Docker Stack
-      run: |
-        docker compose build --no-cache
-        docker compose up -d
-        docker ps
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Database Migrations & System Checks
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
+          python manage.py check
+
+  cd:
+    name: Continuous Deployment (CD)
+    needs: ci
+    runs-on: self-hosted
+    steps:
+      - name: Navigate to project folder and pull latest code #this project 
+        run: |
+          cd /home/ubuntu/dairy_project 
+          git pull origin main
+
+      - name: Build and Run Docker Stack on EC2  #this Ec2
+        run: |
+          cd /home/ubuntu/dairy_project
+          sudo docker-compose up -d --build
+          sudo docker-compose ps
