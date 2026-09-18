@@ -10,72 +10,77 @@
     <style>
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 50%, #ffcc80 100%);
+            background: linear-gradient(135deg, #2e1065 0%, #4c1d95 50%, #6d28d9 100%);
             min-height: 100vh;
-            color: #4e342e;
+            color: #f3e8ff;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 183, 77, 0.4);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            background: rgba(46, 16, 101, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(216, 180, 254, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 183, 77, 0.3);
+            background: rgba(30, 10, 70, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(216, 180, 254, 0.15);
         }
-        .text-dairy-orange { color: #e65100; }
-        .bg-dairy-orange { background-color: #f57c00; }
-        .btn-sky {
-            background: linear-gradient(45deg, #ff9800, #e65100);
+        .text-dairy-accent { color: #f43f5e; }
+        .bg-dairy-accent { background-color: #f43f5e; }
+        .btn-purple-glow {
+            background: linear-gradient(45deg, #a855f7, #ec4899);
             color: white;
-            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
         }
-        .btn-sky:hover {
-            background: linear-gradient(45deg, #fb8c00, #ef6c00);
+        .btn-purple-glow:hover {
+            background: linear-gradient(45deg, #9333ea, #db2777);
         }
-        .metric-icon-bg { background-color: rgba(255, 152, 0, 0.15); color: #e65100; }
+        .metric-icon-bg { 
+            background-color: rgba(236, 72, 153, 0.15); 
+            color: #f472b6; 
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
     </style>
 </head>
 <body class="pb-12">
 
     <!-- Top Navigation Bar -->
-    <nav class="glass-nav sticky top-0 z-50 px-4 sm:px-6 py-3 shadow-md">
+    <nav class="glass-nav sticky top-0 z-50 px-4 sm:px-6 py-3 shadow-xl">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo & Brand -->
             <div class="flex items-center gap-3">
-                <div class="p-2.5 rounded-2xl text-white" style="background: #e65100;">
+                <div class="p-2.5 rounded-2xl text-white shadow-lg" style="background: linear-gradient(45deg, #a855f7, #ec4899);">
                     <i class="fa-solid fa-cow text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-extrabold tracking-tight text-orange-950">Dairy<span style="color: #e65100;">OS</span></h1>
-                    <p class="text-[11px] text-orange-800 font-semibold uppercase tracking-wider hidden xs:block">Enterprise Suite</p>
+                    <h1 class="text-xl font-extrabold tracking-tight text-white">Dairy<span class="text-pink-400">OS</span></h1>
+                    <p class="text-[11px] text-purple-300 font-semibold uppercase tracking-wider hidden xs:block">Enterprise Suite</p>
                 </div>
             </div>
 
             <!-- Center Title -->
             <div class="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-                <h2 class="text-2xl font-extrabold text-orange-950 tracking-tight">
-                    SHREE <span class="text-dairy-orange">DĀRJĪ</span> DAIRY FARM
+                <h2 class="text-2xl font-extrabold text-white tracking-tight">
+                    SHREE <span class="text-pink-400">DĀRJĪ</span> DAIRY FARM
                 </h2>
             </div>
 
             <!-- Actions -->
             <div class="flex items-center gap-3">
-                <a href="{% url 'farmer_ledger' %}" class="bg-orange-500/10 hover:bg-orange-500/20 text-orange-950 px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-orange-500/20">
-                    <i class="fa-solid fa-book-open text-orange-700"></i> <span class="hidden sm:inline">Ledger</span>
+                <a href="{% url 'farmer_ledger' %}" class="bg-purple-900/40 hover:bg-purple-900/70 text-purple-200 px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-purple-500/30 shadow-inner">
+                    <i class="fa-solid fa-book-open text-pink-400"></i> <span class="hidden sm:inline">Ledger</span>
                 </a>
-                <a href="{% url 'add_milk' %}" class="btn-sky px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+                <a href="{% url 'add_milk' %}" class="btn-purple-glow px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
                     <i class="fa-solid fa-plus-circle"></i> Add <span class="hidden xs:inline">Entry</span>
                 </a>
             </div>
         </div>
         <!-- Mobile Title -->
-        <div class="md:hidden mt-3 text-center border-t border-orange-500/20 pt-2">
-            <h2 class="text-lg font-extrabold text-orange-950 tracking-tight">
-                SHREE <span class="text-dairy-orange">DĀRJĪ</span> DAIRY FARM
+        <div class="md:hidden mt-3 text-center border-t border-purple-500/20 pt-2">
+            <h2 class="text-lg font-extrabold text-white tracking-tight">
+                SHREE <span class="text-pink-400">DĀRJĪ</span> DAIRY FARM
             </h2>
         </div>
     </nav>
@@ -85,101 +90,101 @@
         <!-- Metric Stats Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
             <!-- Card 1 -->
-            <div class="glass-card p-7 rounded-3xl shadow-lg">
+            <div class="glass-card p-7 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-start mb-4">
                     <div>
-                        <p class="text-orange-800 text-xs font-bold uppercase tracking-wider">Total Milk Volume</p>
-                        <h3 class="text-4xl font-black text-orange-950 mt-2">{{ total_litres|default:0 }} <span class="text-lg font-bold text-orange-700">Litres</span></h3>
+                        <p class="text-purple-300 text-xs font-bold uppercase tracking-wider">Total Milk Volume</p>
+                        <h3 class="text-4xl font-black text-white mt-2">{{ total_litres|default:0 }} <span class="text-lg font-bold text-pink-400">Litres</span></h3>
                     </div>
                     <div class="metric-icon-bg p-3.5 rounded-2xl">
                         <i class="fa-solid fa-glass-water text-xl"></i>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 text-xs text-orange-800 font-medium">
-                    <i class="fa-solid fa-arrow-trend-up text-orange-700"></i> Live data updated
+                <div class="flex items-center gap-2 text-xs text-purple-300 font-medium">
+                    <i class="fa-solid fa-arrow-trend-up text-pink-400"></i> Live data updated
                 </div>
             </div>
 
             <!-- Card 2 -->
-            <div class="glass-card p-7 rounded-3xl shadow-lg">
+            <div class="glass-card p-7 rounded-3xl shadow-xl">
                 <div class="flex justify-between items-start mb-4">
                     <div>
-                        <p class="text-orange-800 text-xs font-bold uppercase tracking-wider">Total Payout Disbursed</p>
-                        <h3 class="text-4xl font-black text-orange-950 mt-2">₹ {{ total_amount|default:0 }}</h3>
+                        <p class="text-purple-300 text-xs font-bold uppercase tracking-wider">Total Payout Disbursed</p>
+                        <h3 class="text-4xl font-black text-white mt-2">₹ {{ total_amount|default:0 }}</h3>
                     </div>
-                    <div class="metric-icon-bg p-3.5 rounded-2xl" style="background-color: rgba(230, 81, 0, 0.15); color: #e65100;">
+                    <div class="metric-icon-bg p-3.5 rounded-2xl">
                         <i class="fa-solid fa-wallet text-xl"></i>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 text-xs text-orange-800 font-medium">
-                    <i class="fa-solid fa-check-circle text-dairy-orange"></i> Amount calculated automatically
+                <div class="flex items-center gap-2 text-xs text-purple-300 font-medium">
+                    <i class="fa-solid fa-check-circle text-pink-400"></i> Amount calculated automatically
                 </div>
             </div>
         </div>
 
         <!-- Filter & Search Console -->
-        <form method="GET" class="glass-card p-5 rounded-3xl mb-8 shadow-lg flex flex-col md:flex-row gap-4 items-center border border-orange-500/20">
+        <form method="GET" class="glass-card p-5 rounded-3xl mb-8 shadow-xl flex flex-col md:flex-row gap-4 items-center">
             <div class="w-full md:flex-1 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-orange-700 text-sm"></i>
-                <input type="text" name="q" value="{{ search_query }}" placeholder="Search farmer by name..." class="w-full bg-white border border-orange-500/30 text-orange-950 placeholder-orange-700/60 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-pink-400 text-sm"></i>
+                <input type="text" name="q" value="{{ search_query }}" placeholder="Search farmer by name..." class="w-full bg-purple-950/50 border border-purple-500/30 text-white placeholder-purple-300/50 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
             </div>
             <div class="w-full md:w-auto">
-                <input type="date" name="date" value="{{ selected_date }}" class="w-full md:w-auto bg-white border border-orange-500/30 text-orange-950 px-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all">
+                <input type="date" name="date" value="{{ selected_date }}" class="w-full md:w-auto bg-purple-950/50 border border-purple-500/30 text-white px-4 py-3 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
             </div>
             <div class="flex gap-2 w-full md:w-auto">
-                <button type="submit" class="flex-1 md:flex-none btn-sky px-6 py-3 rounded-2xl text-sm font-bold shadow-md">Filter</button>
-                <a href="{% url 'dashboard' %}" class="flex-1 md:flex-none text-center bg-orange-500/10 hover:bg-orange-500/20 text-orange-950 px-5 py-3 rounded-2xl text-sm font-bold transition-all border border-orange-500/20">Reset</a>
+                <button type="submit" class="flex-1 md:flex-none btn-purple-glow px-6 py-3 rounded-2xl text-sm font-bold shadow-md">Filter</button>
+                <a href="{% url 'dashboard' %}" class="flex-1 md:flex-none text-center bg-purple-900/40 hover:bg-purple-900/70 text-purple-200 px-5 py-3 rounded-2xl text-sm font-bold transition-all border border-purple-500/30">Reset</a>
             </div>
         </form>
 
         <!-- Main Data Container -->
-        <div class="glass-card rounded-3xl overflow-hidden shadow-xl border border-orange-500/20">
-            <div class="px-6 py-5 border-b border-orange-500/20 flex justify-between items-center bg-orange-500/10">
+        <div class="glass-card rounded-3xl overflow-hidden shadow-2xl">
+            <div class="px-6 py-5 border-b border-purple-500/20 flex justify-between items-center bg-purple-950/30">
                 <div class="flex items-center gap-3">
-                    <div class="w-3 h-3 rounded-full bg-dairy-orange animate-pulse"></div>
-                    <h3 class="text-base font-extrabold text-orange-950 tracking-wide">Live Collections Stream</h3>
+                    <div class="w-3 h-3 rounded-full bg-pink-500 animate-pulse"></div>
+                    <h3 class="text-base font-extrabold text-white tracking-wide">Live Collections Stream</h3>
                 </div>
-                <span class="text-xs font-bold text-orange-800 bg-orange-500/20 px-3 py-1.5 rounded-xl">Auto-sync Active</span>
+                <span class="text-xs font-bold text-pink-300 bg-pink-500/20 px-3 py-1.5 rounded-xl border border-pink-500/30">Auto-sync Active</span>
             </div>
             
             <!-- Mobile Card View -->
-            <div class="block lg:hidden divide-y divide-orange-500/20 p-4 space-y-4">
+            <div class="block lg:hidden divide-y divide-purple-500/20 p-4 space-y-4">
                 {% for c in collections %}
-                <div class="bg-white border border-orange-500/20 rounded-2xl p-4 space-y-3 shadow-sm">
+                <div class="bg-purple-950/40 border border-purple-500/20 rounded-2xl p-4 space-y-3 shadow-lg">
                     <div class="flex justify-between items-center">
-                        <span class="text-xs font-semibold text-orange-800"><i class="fa-regular fa-calendar mr-1"></i> {{ c.date }}</span>
-                        <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-orange-100 text-orange-800 border-orange-300{% else %}bg-purple-100 text-purple-800 border-purple-300{% endif %}">
-                            <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-orange-600{% else %}fa-moon text-purple-600{% endif %}"></i> {{ c.shift }}
+                        <span class="text-xs font-semibold text-purple-300"><i class="fa-regular fa-calendar mr-1"></i> {{ c.date }}</span>
+                        <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-500/20 text-amber-300 border-amber-500/30{% else %}bg-indigo-500/20 text-indigo-300 border-indigo-500/30{% endif %}">
+                            <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-amber-400{% else %}fa-moon text-indigo-400{% endif %}"></i> {{ c.shift }}
                         </span>
                     </div>
 
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #e65100;">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-md" style="background: linear-gradient(45deg, #a855f7, #ec4899);">
                                 {{ c.farmer.name|slice:":1" }}
                             </div>
                             <div>
-                                <h4 class="font-bold text-orange-950 text-sm">{{ c.farmer.name }}</h4>
-                                <p class="text-xs text-orange-700 font-mono">Op: {{ c.collected_by.username|default:"Admin" }}</p>
+                                <h4 class="font-bold text-white text-sm">{{ c.farmer.name }}</h4>
+                                <p class="text-xs text-purple-300 font-mono">Op: {{ c.collected_by.username|default:"Admin" }}</p>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-lg font-black text-orange-950">₹{{ c.total_amount }}</span>
-                            <p class="text-xs text-orange-800 font-semibold">{{ c.litres }} L • F {{ c.fat }}</p>
+                            <span class="text-lg font-black text-pink-400">₹{{ c.total_amount }}</span>
+                            <p class="text-xs text-purple-300 font-semibold">{{ c.litres }} L • F {{ c.fat }}</p>
                         </div>
                     </div>
 
-                    <div class="pt-2 border-t border-orange-500/20 flex justify-between items-center text-xs">
-                        <span class="text-orange-900 font-medium">Rate: ₹{{ c.price_per_litre }}/L</span>
-                        <a href="{% url 'download_slip' c.id %}" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-xl text-xs font-bold shadow-sm transition-all inline-flex items-center gap-1.5">
+                    <div class="pt-2 border-t border-purple-500/20 flex justify-between items-center text-xs">
+                        <span class="text-purple-200 font-medium">Rate: ₹{{ c.price_per_litre }}/L</span>
+                        <a href="{% url 'download_slip' c.id %}" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-1.5 rounded-xl text-xs font-bold shadow-md transition-all inline-flex items-center gap-1.5">
                             <i class="fa-solid fa-file-arrow-down"></i> PDF Slip
                         </a>
                     </div>
                 </div>
                 {% empty %}
-                <div class="text-center py-12 text-orange-800/70 font-medium">
+                <div class="text-center py-12 text-purple-300/70 font-medium">
                     <div class="flex flex-col items-center justify-center gap-2">
-                        <i class="fa-regular fa-folder-open text-4xl text-orange-400/50"></i>
+                        <i class="fa-regular fa-folder-open text-4xl text-purple-400/50"></i>
                         <p class="text-sm">No collection entries found.</p>
                     </div>
                 </div>
@@ -190,7 +195,7 @@
             <div class="hidden lg:block overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-orange-500/10 text-orange-950 text-xs font-extrabold uppercase tracking-wider border-b border-orange-500/20">
+                        <tr class="bg-purple-950/40 text-purple-200 text-xs font-extrabold uppercase tracking-wider border-b border-purple-500/20">
                             <th class="py-4 px-6">Date</th>
                             <th class="py-4 px-6">Farmer Name</th>
                             <th class="py-4 px-6">Litres</th>
@@ -202,37 +207,37 @@
                             <th class="py-4 px-6 text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="text-orange-950 text-sm divide-y divide-orange-500/20">
+                    <tbody class="text-purple-100 text-sm divide-y divide-purple-500/15">
                         {% for c in collections %}
-                        <tr class="hover:bg-orange-500/10 transition-colors">
-                            <td class="py-4 px-6 font-medium text-orange-900">{{ c.date }}</td>
-                            <td class="py-4 px-6 font-bold text-orange-950 flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-sm" style="background: #e65100;">
+                        <tr class="hover:bg-purple-900/30 transition-colors">
+                            <td class="py-4 px-6 font-medium text-purple-200">{{ c.date }}</td>
+                            <td class="py-4 px-6 font-bold text-white flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl flex items-center justify-center text-sm text-white font-bold shadow-md" style="background: linear-gradient(45deg, #a855f7, #ec4899);">
                                     {{ c.farmer.name|slice:":1" }}
                                 </div>
                                 {{ c.farmer.name }}
                             </td>
-                            <td class="py-4 px-6 font-bold text-orange-900">{{ c.litres }} L</td>
-                            <td class="py-4 px-6 font-semibold text-orange-900">{{ c.fat }}</td>
+                            <td class="py-4 px-6 font-bold text-purple-200">{{ c.litres }} L</td>
+                            <td class="py-4 px-6 font-semibold text-purple-200">{{ c.fat }}</td>
                             <td class="py-4 px-6">
-                                <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-orange-100 text-orange-800 border-orange-300{% else %}bg-purple-100 text-purple-800 border-purple-300{% endif %}">
-                                    <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-orange-600{% else %}fa-moon text-purple-600{% endif %}"></i> {{ c.shift }}
+                                <span class="px-3 py-1 rounded-xl text-[11px] font-bold tracking-wide border inline-flex items-center gap-1.5 {% if c.shift == 'Morning' %}bg-amber-500/20 text-amber-300 border-amber-500/30{% else %}bg-indigo-500/20 text-indigo-300 border-indigo-500/30{% endif %}">
+                                    <i class="fa-solid {% if c.shift == 'Morning' %}fa-sun text-amber-400{% else %}fa-moon text-indigo-400{% endif %}"></i> {{ c.shift }}
                                 </span>
                             </td>
-                            <td class="py-4 px-6 font-medium text-orange-900">₹{{ c.price_per_litre }}</td>
-                            <td class="py-4 px-6 font-black text-orange-950">₹{{ c.total_amount }}</td>
-                            <td class="py-4 px-6 text-xs text-orange-700 font-mono">{{ c.collected_by.username|default:"Admin" }}</td>
+                            <td class="py-4 px-6 font-medium text-purple-200">₹{{ c.price_per_litre }}</td>
+                            <td class="py-4 px-6 font-black text-pink-400">₹{{ c.total_amount }}</td>
+                            <td class="py-4 px-6 text-xs text-purple-300 font-mono">{{ c.collected_by.username|default:"Admin" }}</td>
                             <td class="py-4 px-6 text-center">
-                                <a href="{% url 'download_slip' c.id %}" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm transition-all inline-flex items-center gap-1.5">
+                                <a href="{% url 'download_slip' c.id %}" class="bg-rose-600 hover:bg-rose-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-md transition-all inline-flex items-center gap-1.5">
                                     <i class="fa-solid fa-file-arrow-down"></i> PDF
                                 </a>
                             </td>
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="9" class="text-center py-12 text-orange-800/70 font-medium">
+                            <td colspan="9" class="text-center py-12 text-purple-300/70 font-medium">
                                 <div class="flex flex-col items-center justify-center gap-2">
-                                    <i class="fa-regular fa-folder-open text-4xl text-orange-400/50"></i>
+                                    <i class="fa-regular fa-folder-open text-4xl text-purple-400/50"></i>
                                     <p class="text-sm">No collection entries found.</p>
                                 </div>
                             </td>
