@@ -2,7 +2,8 @@ services:
   web:
     build: .
     ports:
-      - "8080:8080"
+      - "8000:8000"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     restart: always
     environment:
       - DATABASE_URL=postgres://myuser:mypassword@db:5432/mydb
@@ -19,19 +20,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  grafana:
-    image: grafana/grafana:latest
-    container_name: grafana
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafanadata:/var/lib/grafana
-    restart: always
-
-
 volumes:
   pgdata:
   mysqldata:
   mongodata:
-  grafanadata:
-

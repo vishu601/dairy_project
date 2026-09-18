@@ -10,5 +10,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends libpq5 && rm -r
 COPY --from=builder /root/.local /root/.local
 COPY . /app
 ENV PATH=/root/.local/bin:$PATH
-EXPOSE 8080
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+EXPOSE 8000 
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
