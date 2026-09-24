@@ -33,14 +33,14 @@ jobs:
     needs: ci
     runs-on: self-hosted
     steps:
-      - name: Navigate to project folder and pull latest code #this project 
+      - name: Navigate to project folder and pull latest code
         run: |
-          cd /home/ubuntu/kiranakhata-pro.  
+          cd /home/ubuntu/dairy_project
           git pull origin main
 
-      - name: Build and Run Docker Stack on EC2  #this Ec2
+      - name: Build and Run Docker Stack on EC2
         run: |
-          cd /home/ubuntu/kiranakhata-pro.
+          cd /home/ubuntu/dairy_project
           sudo docker-compose down
           sudo docker-compose up -d --build
           sudo docker-compose ps
