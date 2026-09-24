@@ -69,11 +69,15 @@
             </div>
 
             <!-- Actions -->
-            <div class="flex items-center gap-3">
-                <a href="{% url 'farmer_ledger' %}" class="bg-emerald-900/40 hover:bg-emerald-900/70 text-emerald-200 px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-emerald-500/30 shadow-inner">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Django Admin Button -->
+                <a href="{% url 'admin:index' %}" class="bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 px-3.5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-emerald-500/40 shadow-inner">
+                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> <span class="hidden sm:inline">Admin</span>
+                </a>
+                <a href="{% url 'farmer_ledger' %}" class="bg-emerald-900/40 hover:bg-emerald-900/70 text-emerald-200 px-3.5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 border border-emerald-500/30 shadow-inner">
                     <i class="fa-solid fa-book-open text-emerald-400"></i> <span class="hidden sm:inline">Ledger</span>
                 </a>
-                <a href="{% url 'add_milk' %}" class="btn-green-glow px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+                <a href="{% url 'add_milk' %}" class="btn-green-glow px-4 sm:px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
                     <i class="fa-solid fa-plus-circle"></i> Add <span class="hidden xs:inline">Entry</span>
                 </a>
             </div>
@@ -251,4 +255,4 @@
 
     </div>
 </body>
-</html>#this color change 
+</html>
